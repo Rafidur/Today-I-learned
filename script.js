@@ -63,7 +63,9 @@ async function loadFacts() {
     }
   );
   const data = await res.json();
-  console.log(data);
+  //console.log(data);
+  // const filteredData = data.filter((fact) => fact.category === "society");
+  // console.log(filteredData);
   createFactList(data);
 }
 
@@ -79,16 +81,18 @@ function createFactList(dataArray) {
         target="_blank"
         >(Source)</a>
       </p>
-      <span class="tag" style="background-color: #3b82f6">${fact.category}</span>
+      <span class="tag" style="background-color: ${
+        CATEGORIES.find((cat) => cat.name === fact.category).color
+      }">${fact.category}</span>
     
     
     </li>`
   );
   //factsList.insertAdjacentHTML("afterbegin", "<li>rafid</li>");
 
-  console.log(htmlArr);
+  //console.log(htmlArr);
   const html = htmlArr.join("");
-  console.log(html);
+  //console.log(html);
   factsList.insertAdjacentHTML("afterbegin", html);
 }
 
