@@ -7,7 +7,7 @@ body {
   background-color: #292524;
   color: #fafaf9;
   font-family: sans-serif;
-  padding: 40px 64px;
+  padding: 40px 64px 0px;
 }
 .hidden {
   display: none !important;
@@ -18,6 +18,11 @@ body {
   font-size: 32px;
   font-weight: 600;
   margin-top: 24px;
+}
+.disputed {
+  color: #ef4444;
+  font-weight: 600;
+  margin-right: 10px;
 }
 /* MAIN layout*/
 #root {
@@ -35,12 +40,21 @@ body {
   display: grid;
   grid-template-columns: 250px 1fr;
   gap: 48px;
+
+  height: calc(100vh - 48px - 68px - 40px);
 }
 @media (max-width: 900px) {
   .main {
     grid-template-columns: 1fr;
     height: auto;
   }
+}
+section {
+  overflow: scroll;
+  padding-bottom: 40px;
+}
+section::-webkit-scrollbar {
+  display: none;
 }
 /* ELEMENTS*/
 .logo {
@@ -190,7 +204,7 @@ ul {
 }
 @media (max-width: 1000px) {
   body {
-    padding: 32px 48px;
+    /* padding: 32px 48px; */
   }
   .fact-form {
     flex-direction: column;
